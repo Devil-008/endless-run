@@ -1,0 +1,223 @@
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 75%;
+  background: linear-gradient(to bottom, #87ceeb 0%, #b0e0e6 50%, #ffd89b 100%);
+  z-index: 1;
+}
+
+.sun {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fffacd 0%, #ffd700 70%, #ffa500 100%);
+  border-radius: 50%;
+  top: 50px;
+  right: 100px;
+  box-shadow:
+    0 0 20px #ffd700,
+    0 0 40px #ffd700,
+    0 0 60px rgba(255, 215, 0, 0.5);
+  animation: sunGlow 3s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px #ffd700,
+      0 0 40px #ffd700,
+      0 0 60px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 30px #ffd700,
+      0 0 50px #ffd700,
+      0 0 70px rgba(255, 215, 0, 0.7);
+  }
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  animation: cloudFloat 20s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+}
+
+.cloud-1 {
+  width: 100px;
+  height: 40px;
+  top: 80px;
+  left: 10%;
+}
+
+.cloud-1::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 20px;
+}
+
+.cloud-1::after {
+  width: 60px;
+  height: 35px;
+  top: -15px;
+  right: 20px;
+}
+
+.cloud-2 {
+  width: 120px;
+  height: 45px;
+  top: 150px;
+  left: 40%;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.cloud-2::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 25px;
+}
+
+.cloud-2::after {
+  width: 70px;
+  height: 40px;
+  top: -20px;
+  right: 25px;
+}
+
+.cloud-3 {
+  width: 90px;
+  height: 35px;
+  top: 120px;
+  left: 70%;
+  animation-duration: 30s;
+  animation-delay: -10s;
+}
+
+.cloud-3::before {
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 15px;
+}
+
+.cloud-3::after {
+  width: 55px;
+  height: 30px;
+  top: -15px;
+  right: 15px;
+}
+
+@keyframes cloudFloat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.mountains {
+  position: absolute;
+  width: 100%;
+  height: 75%;
+  bottom: 25%;
+  z-index: 2;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+}
+
+.mountain-1 {
+  border-bottom: 300px solid #8b7355;
+  left: -50px;
+  filter: brightness(0.7);
+}
+
+.mountain-2 {
+  border-bottom: 250px solid #a0826d;
+  left: 25%;
+  filter: brightness(0.8);
+}
+
+.mountain-3 {
+  border-bottom: 280px solid #8b7355;
+  right: 10%;
+  filter: brightness(0.75);
+}
+
+.mountain::before {
+  content: "";
+  position: absolute;
+  bottom: -300px;
+  left: -200px;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 300px solid rgba(255, 255, 255, 0.2);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to bottom, #8b6f47 0%, #6b5233 50%, #4a3621 100%);
+  z-index: 3;
+  border-top: 4px solid #5a4024;
+}
+
+.grass-layer {
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to bottom, #7cb342 0%, #558b2f 100%);
+  z-index: 4;
+  overflow: hidden;
+}
+
+.grass-layer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 3px,
+    #7cb342 3px,
+    #7cb342 4px,
+    transparent 4px,
+    transparent 8px,
+    #558b2f 8px,
+    #558b2f 9px
+  );
+}

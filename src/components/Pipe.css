@@ -1,0 +1,137 @@
+.pipe-container {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  z-index: 5;
+}
+
+.pipe {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pipe-top {
+  top: 0;
+  justify-content: flex-end;
+}
+
+.pipe-bottom {
+  bottom: 0;
+  justify-content: flex-start;
+}
+
+.pipe-body {
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #2d5016 0%,
+    #3d6b1f 10%,
+    #4a7c26 50%,
+    #3d6b1f 90%,
+    #2d5016 100%
+  );
+  position: relative;
+  flex: 1;
+  border-left: 3px solid #1a3009;
+  border-right: 3px solid #1a3009;
+  box-shadow:
+    inset 4px 0 8px rgba(0, 0, 0, 0.3),
+    inset -4px 0 8px rgba(0, 0, 0, 0.3),
+    4px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.pipe-segment {
+  width: 100%;
+  height: 33.33%;
+  border-bottom: 2px solid #1a3009;
+  position: relative;
+}
+
+.pipe-segment::before {
+  content: "";
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #5a9c2f;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(90, 156, 47, 0.6);
+}
+
+.pipe-segment::after {
+  content: "";
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #5a9c2f;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(90, 156, 47, 0.6);
+}
+
+.pipe-cap {
+  width: 110%;
+  height: 40px;
+  background: linear-gradient(
+    to right,
+    #2d5016 0%,
+    #3d6b1f 10%,
+    #4a7c26 50%,
+    #3d6b1f 90%,
+    #2d5016 100%
+  );
+  position: relative;
+  left: -5%;
+  border: 3px solid #1a3009;
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    inset 0 4px 8px rgba(90, 156, 47, 0.3),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.pipe-cap-bottom {
+  border-radius: 0 0 8px 8px;
+  box-shadow:
+    inset 0 -4px 8px rgba(90, 156, 47, 0.3),
+    inset 0 4px 8px rgba(0, 0, 0, 0.4),
+    4px -4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.pipe-cap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  background: linear-gradient(
+    to bottom,
+    rgba(90, 156, 47, 0.2),
+    rgba(45, 80, 22, 0.3)
+  );
+  border-radius: 4px;
+}
+
+/* Add texture/detail lines */
+.pipe-body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(90, 156, 47, 0.4) 50%,
+    transparent 100%
+  );
+}
